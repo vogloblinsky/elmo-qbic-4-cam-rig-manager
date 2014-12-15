@@ -1,0 +1,50 @@
+<!doctype html>
+<html class="no-js" lang="" ng-app="camManager">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+
+    <div class="container" ng-controller="MainCtrl">
+        <div class="page-header">
+            <h1>Caméras manager for 4 Elmo QBIC MS-1</h1>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                Statut de connexion au serveur proxy NodeJS dd : 
+                <span class="label" ng-class="{'label-success': lifeState}" ng-if="lifeState">OK</span>
+                <span class="label" ng-class="{'label-warning': !lifeState}" ng-if="!lifeState">KO</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">Caméra 1</div>
+            <div class="col-md-3">Caméra 2</div>
+            <div class="col-md-3">Caméra 3</div>
+            <div class="col-md-3">Caméra 4</div>
+        </div>
+    </div>
+
+    <script src="bower_components/angularjs/angular.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/lodash/dist/lodash.js"></script>
+    <script src="bower_components/restangular/dist/restangular.js"></script>
+
+    <script src="js/start.js"></script>
+
+    <script src="js/services/life-service.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
