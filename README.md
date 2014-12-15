@@ -7,7 +7,7 @@ Requirements :
 - MAC computer with wifi card
 - 4 Elmo QBIC MS-1 cameras with each one having a specific named wifi network
 
-#Features
+##Features
 
 - read/update cameras parameters on the fly: shutter speed, contrast, etc...
 - capture live streaming for visual picture control
