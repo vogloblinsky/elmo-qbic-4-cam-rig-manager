@@ -10,12 +10,16 @@ angular.module('camManager')
             $interval,
             LifeService) {
 
-            $interval(function() {
+            var LifeServiceCall = function() {
                 LifeService.get().then(function(state) {
-                    console.log('life state: ', state);
                     $scope.lifeState = state;
                 });
-            }, 2000);
+            };
+
+            LifeServiceCall();
+            $interval(function() {
+                LifeServiceCall();
+            }, 15000);
 
         }
     ]);
