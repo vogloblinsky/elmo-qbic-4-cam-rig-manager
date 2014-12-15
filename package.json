@@ -1,0 +1,14 @@
+{
+    "name": "cam-manager",
+    "version": "0.0.1",
+    "description": "",
+    "main": "server/server.js",
+    "author": "VOG",
+    "dependencies": {
+        "express": "~4.4.5"
+    },
+    "devDependencies": {
+        "gulp": "^3.8.7",
+        "gulp-nodemon": "^1.0.4"
+    }
+}
