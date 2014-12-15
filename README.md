@@ -1,0 +1,1 @@
+#Elmo Qbic 4 cameras Rig Manager
