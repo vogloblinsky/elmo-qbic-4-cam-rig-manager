@@ -2,10 +2,11 @@
     "name": "cam-manager",
     "version": "0.0.1",
     "description": "",
-    "main": "server/server.js",
+    "main": "server/index.js",
     "author": "VOG",
     "dependencies": {
-        "express": "~4.4.5"
+        "express": "^4.10.6",
+        "q": "^1.1.2"
     },
     "devDependencies": {
         "gulp": "^3.8.7",
