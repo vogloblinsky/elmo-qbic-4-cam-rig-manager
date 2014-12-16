@@ -9,28 +9,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
 
     <div class="container" ng-controller="MainCtrl">
         <div class="page-header">
-            <h1>Caméras manager for 4 Elmo QBIC MS-1</h1>
+            <h1>Cameras manager for 4 Elmo QBIC MS-1</h1>
         </div>
 
         <div class="panel panel-default">
             <div class="panel-body">
-                Statut de connexion au serveur proxy NodeJS dd : 
+                Connexion status with NodeJS proxy server : 
                 <span class="label" ng-class="{'label-success': lifeState}" ng-if="lifeState">OK</span>
                 <span class="label" ng-class="{'label-warning': !lifeState}" ng-if="!lifeState">KO</span>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-3">Caméra 1</div>
-            <div class="col-md-3">Caméra 2</div>
-            <div class="col-md-3">Caméra 3</div>
-            <div class="col-md-3">Caméra 4</div>
+            <div class="col-md-3">
+                <p>
+                    Camera 1 - QBIC-VOG-1
+                <p>
+                <p>
+                    <b>Camera settings :</b>
+                <p>
+                <div>
+                    <div>Light Metering: <a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></div>
+                </div>
+                <div>
+                    <div>Angle: <a href="#" editable-number="user.number">{{ user.number || 0 }}</a></div>
+                </div>
+                <div>
+                    <div>Distortion Correction: <a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></div>
+                </div>
+                <div>
+                    <div>Hand-Shake Correction: <a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></div>
+                </div>
+                <div>
+                    <div>Auto White Balance Setting: <a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></div>
+                </div>
+                <div>
+                    <div>Auto Exposure Setting: <a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></div>
+                </div>
+                <div>
+                    <div>Resolution: <a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></div>
+                </div>
+                <div>
+                    <div>Exposure / shutter speed: <a href="#" editable-number="user.email">{{ user.email || 0 }}</a></div>
+                </div>
+                <div>
+                    <div>Exposure / gain level: <a href="#" editable-number="user.email">{{ user.email || 0 }}</a></div>
+                </div>
+                <p>
+                    <b>Preview : 400x240px :</b>
+                <p>
+                <div>
+                    <img src="img/thumb.jpg" class="rotateCounterClock" alt="Responsive image">
+                </div>
+            </div>
+            <div class="col-md-3">Caméra 2 - QBIC-VOG-2</div>
+            <div class="col-md-3">Caméra 3 - QBIC-VOG-3</div>
+            <div class="col-md-3">Caméra 4 - QBIC-VOG-4</div>
         </div>
     </div>
 
@@ -39,6 +81,7 @@
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/lodash/dist/lodash.js"></script>
     <script src="bower_components/restangular/dist/restangular.js"></script>
+    <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
 
     <script src="js/start.js"></script>
 
