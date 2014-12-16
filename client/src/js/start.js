@@ -3,7 +3,8 @@
 angular.module('camManager', [
         'ngSanitize',
         'ngResource',
-        'restangular'
+        'restangular',
+        'xeditable'
     ])
     .config(['RestangularProvider',
         function(RestangularProvider) {
