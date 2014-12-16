@@ -29,3 +29,17 @@ npm install & bower install
 ```
 
 - launch http://localhost:9090/ in your web browser
+
+### Documentation
+
+Elmo QBIC MS-1 manual :
+
+http://www.elmoqbic.com/shared/download/pdf/QBiC_MS-1_manual_EN_R7.pdf
+
+Elmo QBIC MS-1 datasheet :
+
+http://www.elmoqbic.com/shared/download/pdf/QBiC_ms1_A4E_SPREAD_union.pdf
+
+Elmo QBIC MS-1 APP for PC manual :
+
+http://www.elmoqbic.com/shared/download/pdf/QBiC_APP_for_PC_win_EN_R3.pdf
