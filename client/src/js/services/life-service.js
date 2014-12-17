@@ -1,12 +1,10 @@
 'use strict';
 
-angular.module('camManager').factory('LifeService', ['Restangular',
+angular.module('camManager').service('LifeService', ['Restangular',
     function(Restangular) {
 
-        return {
-            get: function() {
-                return Restangular.one('life').get();
-            }
+        this.get = function() {
+            return Restangular.one('life').get();
         };
     }
 ]);
