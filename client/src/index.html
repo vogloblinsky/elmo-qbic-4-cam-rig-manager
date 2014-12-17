@@ -22,9 +22,25 @@
 
         <div class="panel panel-default">
             <div class="panel-body">
-                Connexion status with NodeJS proxy server : 
-                <span class="label" ng-class="{'label-success': lifeState}" ng-if="lifeState">OK</span>
-                <span class="label" ng-class="{'label-warning': !lifeState}" ng-if="!lifeState">KO</span>
+                <div>
+                    Connexion status with NodeJS proxy server : 
+                    <span class="label" ng-class="{'label-success': lifeState}" ng-if="lifeState">OK</span>
+                    <span class="label" ng-class="{'label-warning': !lifeState}" ng-if="!lifeState">KO</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div>
+                    <div class="btn-group">
+                        <label class="btn btn-info btn-group-xs" ng-model="connectedCam" btn-radio="'camera1'">Camera 1</label>
+                        <label class="btn btn-info btn-group-xs" ng-model="connectedCam" btn-radio="'camera2'">Camera 2</label>
+                        <label class="btn btn-info btn-group-xs" ng-model="connectedCam" btn-radio="'camera3'">Camera 3</label>
+                        <label class="btn btn-info btn-group-xs" ng-model="connectedCam" btn-radio="'camera4'">Camera 4</label>
+                    </div>
+                    Selected camera : {{connectedCam}}
+                </div>
             </div>
         </div>
 
@@ -37,6 +53,17 @@
                     <b>Camera settings :</b>
                 <p>
                 <div>
+
+                    <div camera></div>
+
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>TETS</td>
+                            <td>dds</td>
+                        </tr>
+                    </table>
+
+
                     <div>Light Metering: <a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></div>
                 </div>
                 <div>
@@ -67,7 +94,7 @@
                     <b>Preview : 400x240px :</b>
                 <p>
                 <div>
-                    <img ng-src="{{cameraThumb}}" class="rotateCounterClock" alt="Responsive image">
+                    <img ng-src="{{cameraThumb || 'img/thumb.jpg'}}" class="rotateCounterClock" alt="Responsive image">
                 </div>
             </div>
             <div class="col-md-3">Caméra 2 - QBIC-VOG-2</div>
@@ -83,10 +110,13 @@
     <script src="bower_components/restangular/dist/restangular.js"></script>
     <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
 
+    <script src="js/external/ui-bootstrap-tpls-0.9.0.js"></script>
+
     <script src="js/start.js"></script>
 
     <script src="js/services/life-service.js"></script>
     <script src="js/services/camera-service.js"></script>
+    <script src="js/directives/camera-directive.js"></script>
     <script src="js/main.js"></script>
 
 </body>
