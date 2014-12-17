@@ -5,10 +5,12 @@ angular.module('camManager')
         '$scope',
         '$interval',
         'LifeService',
+        'CameraService',
         function(
             $scope,
             $interval,
-            LifeService) {
+            LifeService,
+            CameraService) {
 
             var LifeServiceCall = function() {
                 LifeService.get().then(function(state) {
@@ -20,6 +22,19 @@ angular.module('camManager')
             $interval(function() {
                 LifeServiceCall();
             }, 15000);
+
+            var CameraServiceCall = function() {
+                CameraService.getThumb('cam1').then(function(picture) {
+                    $scope.cameraThumb = picture;
+                });
+            };
+
+            CameraServiceCall();
+            $interval(function() {
+                CameraServiceCall();
+            }, 2000);
+
+            
 
         }
     ]);
