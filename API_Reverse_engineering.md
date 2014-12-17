@@ -1,22 +1,20 @@
-Reverse engineering QBIC API:
+##Reverse engineering QBIC API:
 
-POST : /cgi-bin/cgi | json
+All POST are sended to : /cgi-bin/cgi in application/json
 
-
-
-Get token
+#Get token, initially at 0
 {"msg_id":257, "token": 0}
 
 Response:
 {
 rval: 0
 msg_id: 257
-param: 2 -> token
+param: 2 -> TOKEN
 }
 
 
-Synchro life
-{"msg_id":260, "token": 2}
+#Synchro life
+{"msg_id":260, "token": TOKEN}
 
 Response:
 {
@@ -25,8 +23,8 @@ msg_id: 260
 }
 
 
-???
-{"msg_id":4097, "timeout": 2, "token": 2}
+#???
+{"msg_id":4097, "timeout": 2, "token": TOKEN}
 
 Response:
 {
@@ -34,8 +32,8 @@ rval: -2
 msg_id: 4097
 }
 
-
-{"msg_id":3, "token": 2} // get params
+#Get camera params
+{"msg_id":3, "token": TOKEN}
 
 Response:
 {
@@ -111,8 +109,7 @@ Response:
 }
 
 
-
-Activate streaming:
+##Activate streaming:
 
 Part 1
 
@@ -126,21 +123,19 @@ msg_id: 2
 type: "stream_while_record"
 }
 
-PArt 2
+Part 2
 
 {"msg_id":259, "param": "none_force", "token": 0}
 
 
-
-Stop streaming:
+##Stop streaming:
 
 {"msg_id":260, "token": 2}
 +
 {"msg_id":258, "token": xx}
 
 
-
-Adjuste field of view:
+##Adjuste field of view:
 
 {"msg_id":260, "token": 2}
 +
