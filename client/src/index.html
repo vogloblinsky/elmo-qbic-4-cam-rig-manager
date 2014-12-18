@@ -33,13 +33,13 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div>
+                    Selected camera :
                     <div class="btn-group">
-                        <label class="btn btn-info btn-group-xs" ng-model="connectedCam" btn-radio="'camera1'">Camera 1</label>
-                        <label class="btn btn-info btn-group-xs" ng-model="connectedCam" btn-radio="'camera2'">Camera 2</label>
-                        <label class="btn btn-info btn-group-xs" ng-model="connectedCam" btn-radio="'camera3'">Camera 3</label>
-                        <label class="btn btn-info btn-group-xs" ng-model="connectedCam" btn-radio="'camera4'">Camera 4</label>
+                        <label class="btn btn-info btn-group-xs" ng-model="connectedCam" btn-radio="'1'">Camera 1</label>
+                        <label class="btn btn-info btn-group-xs" ng-model="connectedCam" btn-radio="'2'">Camera 2</label>
+                        <label class="btn btn-info btn-group-xs" ng-model="connectedCam" btn-radio="'3'">Camera 3</label>
+                        <label class="btn btn-info btn-group-xs" ng-model="connectedCam" btn-radio="'4'">Camera 4</label>
                     </div>
-                    Selected camera : {{connectedCam}}
                 </div>
             </div>
         </div>
@@ -69,6 +69,7 @@
 
     <script src="js/services/life-service.js"></script>
     <script src="js/services/camera-service.js"></script>
+    <script src="js/factories/camera-factory.js"></script>
     <script src="js/directives/camera-directive.js"></script>
     <script src="js/main.js"></script>
 

@@ -5,8 +5,12 @@ angular.module('camManager').service('CameraService', ['Restangular',
 
         var baseCamera = Restangular.all('camera');
 
-        this.getThumb = function(id) {
-            return Restangular.one('camera', id).customGET('thumb');
+        this.getThumb = function() {
+            return baseCamera.customGET('thumb');
+        };
+
+        this.getSettings = function() {
+            return baseCamera.customGET('settings');
         };
     }
 ]);

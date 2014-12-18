@@ -5,36 +5,39 @@ angular.module('camManager')
         '$scope',
         '$interval',
         'LifeService',
-        'CameraService',
+        'CameraFactory',
+        'SETTINGS',
         function(
             $scope,
             $interval,
             LifeService,
-            CameraService) {
+            CameraFactory,
+            SETTINGS) {
 
-            $scope.connectedCam = null;
 
             var LifeServiceCall = function() {
                 LifeService.get().then(function(state) {
                     $scope.lifeState = state;
                 });
             };
-
             LifeServiceCall();
             $interval(function() {
                 LifeServiceCall();
-            }, 15000);
+            }, SETTINGS.TIME_PULLING_LIFE);
 
-            var CameraServiceCall = function() {
-                CameraService.getThumb('cam1').then(function(picture) {
-                    $scope.cameraThumb = picture;
-                });
-            };
 
-            CameraServiceCall();
-            $interval(function() {
-                CameraServiceCall();
-            }, 2000);
-
+            var cameraPullingStarted = false;
+            $scope.connectedCam = null;
+            var watcherSelectedCamera = $scope.$watch('connectedCam', function(newValue, oldValue) {
+                console.log(newValue, oldValue);
+                if (newValue !== oldValue) {
+                    // Camera selected
+                    if(!cameraPullingStarted) {
+                        cameraPullingStarted = true;
+                        CameraFactory.startCameraPulling();
+                    }
+                    CameraFactory.selectCamera(newValue);
+                }
+            });
         }
     ]);
