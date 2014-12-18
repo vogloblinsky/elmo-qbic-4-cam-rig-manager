@@ -25,8 +25,6 @@ angular.module('camManager')
                 LifeServiceCall();
             }, 15000);
 
-            $scope.cameraThumb = null;
-            /*
             var CameraServiceCall = function() {
                 CameraService.getThumb('cam1').then(function(picture) {
                     $scope.cameraThumb = picture;
@@ -36,8 +34,7 @@ angular.module('camManager')
             CameraServiceCall();
             $interval(function() {
                 CameraServiceCall();
-            }, 2000); 
-            */           
+            }, 2000);
 
         }
     ]);
