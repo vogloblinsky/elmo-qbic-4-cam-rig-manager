@@ -4,12 +4,13 @@ angular.module('camManager')
     .directive('camera', ['CameraFactory', function(CameraFactory) {
         return {
             templateUrl: './templates/camera-detail.html',
+            restrict: 'AE',
             scope: {
-                id: "=cameraId"
+                id: '=cameraId',
+                thumb: '=thumb'
             },
-            controller: function($scope, $element, $attrs, $transclude) {
-                CameraFactory.addCamera($scope.id);
-                console.log(CameraFactory.camerasData());
+            link: function (scope, element, attrs) {
+                console.log('link: ', scope, attrs);
             }
         }
     }]);

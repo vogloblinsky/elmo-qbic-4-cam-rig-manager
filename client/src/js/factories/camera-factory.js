@@ -12,13 +12,19 @@ angular.module('camManager').factory('CameraFactory',
 
         /* Privates fx */
 
-        var _camerasData = {},
+        var _camerasData = {
+            '1': {},
+            '2': {},
+            '3': {},
+            '4': {}
+        },
             _selectedCamera = 0;
 
         var CameraServiceCall = function() {
             CameraService.getThumb().then(function(picture) {
                 console.log('picture: ', picture);
                 _camerasData[_selectedCamera].picture = picture;
+                console.log(_camerasData);
             });
             CameraService.getSettings().then(function(settings) {
                 console.log('settings: ', settings);
