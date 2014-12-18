@@ -3,7 +3,8 @@
 var request = require('request').defaults({
         encoding: null
     }),
-    fs = require('fs-extended');
+    fs = require('fs-extended'),
+    randombase64 = require('randombase64');
 
 module.exports = function(app) {
 
@@ -18,10 +19,21 @@ module.exports = function(app) {
                 _contentType = null,
                 _finalURI = null;
 
+            /*
             request('http://192.168.42.1/mjpeg/amba.jpg', function(error, response, body) {
                 _contentType = response.headers['content-type'];
                 _finalURI = 'data:' + _contentType + ';base64,' + new Buffer(body).toString('base64');
+
                 res.send(_finalURI);
+            });
+            */
+
+            randombase64.generate({
+                height     : 240,
+                width      : 400,
+                withPrefix  : true
+            }, function(err, str) {
+                res.send(str);
             });
 
         });
