@@ -4,6 +4,7 @@ var Wifitools       = require('./utils/wifi-tool'),
     localCamIP      = '192.168.42.1',
     express         = require('express'),
     path            = require('path'),
+    logger          = require('morgan'),
     app             = express(),
     urlClient       = '../client/src';
 
@@ -26,6 +27,8 @@ setTimeout(function() {
  */
 
 app.set('port', process.env.PORT || 9090);
+
+app.use(logger('dev'));
 
 app.use(express.static(path.join(__dirname, urlClient)));
 
