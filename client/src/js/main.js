@@ -29,7 +29,6 @@ angular.module('camManager')
             var cameraPullingStarted = false;
             $scope.connectedCam = null;
             var watcherSelectedCamera = $scope.$watch('connectedCam', function(newValue, oldValue) {
-                console.log(newValue, oldValue);
                 if (newValue !== oldValue) {
                     // Camera selected
                     if(!cameraPullingStarted) {
@@ -40,9 +39,6 @@ angular.module('camManager')
                 }
             });
 
-
-            $scope.testFx = function(param) {
-                return param*2;
-            };
+            $scope.camerasData = CameraFactory.camerasData();
         }
     ]);

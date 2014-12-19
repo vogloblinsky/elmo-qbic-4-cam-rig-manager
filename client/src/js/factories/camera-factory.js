@@ -22,13 +22,11 @@ angular.module('camManager').factory('CameraFactory',
 
         var CameraServiceCall = function() {
             CameraService.getThumb().then(function(picture) {
-                console.log('picture: ', picture);
                 _camerasData[_selectedCamera].picture = picture;
-                console.log(_camerasData);
             });
             CameraService.getSettings().then(function(settings) {
-                console.log('settings: ', settings);
-                _camerasData[_selectedCamera].settings = settings;
+                console.log(settings.plain());
+                _camerasData[_selectedCamera].settings = settings.plain();
             });
         };
 
@@ -43,6 +41,10 @@ angular.module('camManager').factory('CameraFactory',
 
         CameraFactory.camerasData = function() {
             return _camerasData;
+        };
+
+        CameraFactory.cameraData = function(id) {
+            return _camerasData[id];
         };
 
         CameraFactory.addCamera = function(id) {

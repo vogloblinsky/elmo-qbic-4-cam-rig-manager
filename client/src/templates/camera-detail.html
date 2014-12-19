@@ -1,6 +1,5 @@
 <div class="col-md-3">
     <p>
-        {{ cameraThumb }} - {{ id }}
         Camera {{ id }} - QBIC-VOG-{{id}}
     </p>
     <p>
@@ -9,9 +8,10 @@
     <div>
         <table class="table table-bordered">
             <tr>
-                <td>Light Metering</td>
-                <td><a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></td>
+                <td>stream_type</td>
+                <td>{{ cameraData[id].settings.stream_type }}</a></td>
             </tr>
+            <!--
             <tr>
                 <td>Angle</td>
                 <td><a href="#" editable-number="user.email">{{ user.email || 0 }}</a></td>
@@ -44,12 +44,13 @@
                 <td>Exposure / gain level</td>
                 <td><a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></td>
             </tr>
+            -->
         </table>
     </div>
     <p>
         <b>Preview : 400x240px</b>
     <p>
     <div>
-        <img ng-src="{{cameraThumb || 'img/thumb.jpg'}}" class="rotateCounterClock" alt="Responsive image">
+        <img ng-src="{{ cameraData[id].picture || 'img/thumb.jpg'}}" class="rotateCounterClock" alt="Responsive image">
     </div>
 </div>
