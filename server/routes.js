@@ -1,16 +1,33 @@
 'use strict';
 
-var request = require('request').defaults({
+var request         = require('request').defaults({
         encoding: null
     }),
-    fs = require('fs-extended'),
-    randombase64 = require('randombase64');
+    fs              = require('fs-extended'),
+    randombase64    = require('randombase64'),
+    connectedWifi   = null,
+    Wifitools       = require('./utils/wifi-tool'),
+    wifiClient      = new Wifitools(),
+    localCamIP      = '192.168.42.1';
 
 module.exports = function(app) {
 
     app.route('/api/life')
         .get(function(req, res, next) {
             res.send(true);
+        });
+
+    app.route('/api/camera/:id/connect')
+        .get(function(req, res, next) {
+            var cameraId = req.params.id;
+            wifiClient.connectToNetwork('QBIC-VOG-' + cameraId, '0123456789').then(function() {
+                setTimeout(function() {
+                    //Test correct connection after 5s
+                    connectedWifi = wifiClient.getCurrentWifiNetwork();
+                    console.log('connectedWifi: ', connectedWifi);
+                    res.sendStatus(200);
+                }, 5000);
+            });
         });
 
     app.route('/api/camera/thumb')
@@ -20,14 +37,12 @@ module.exports = function(app) {
                 _finalURI = null;
 
             /*
-            request('http://192.168.42.1/mjpeg/amba.jpg', function(error, response, body) {
-                _contentType = response.headers['content-type'];
-                _finalURI = 'data:' + _contentType + ';base64,' + new Buffer(body).toString('base64');
-
+            request('http://' + localCamIP + '/mjpeg/amba.jpg', function(error, response, body) {
+                _finalURI = 'data:image/jpg;base64,' + new Buffer(body).toString('base64');
                 res.send(_finalURI);
             });
             */
-
+           
             randombase64.generate({
                 height     : 240,
                 width      : 400,
@@ -35,13 +50,12 @@ module.exports = function(app) {
             }, function(err, str) {
                 res.send(str);
             });
-
         });
 
     app.route('/api/camera/settings')
         .get(function(req, res, next) {
 
-            res.json({
+            var mockData = [{
                 "stream_type": "mjpg"
             }, {
                 "std_def_video": "on"
@@ -107,6 +121,22 @@ module.exports = function(app) {
                 "app_status": "idle"
             }, {
                 "camera_clock": "2014-12-16 13:44:43"
-            });
+            }];
+
+            var reformatData = function(data) {
+                var _result = {},
+                    len = data.length,
+                    i = 0;
+
+                for(i; i<len; i++) {
+                    for(var k in data[i]) {
+                        _result[k] = data[i][k];
+                    }
+                }
+
+                return _result;
+            };
+
+            res.json(reformatData(mockData));
         });
 };

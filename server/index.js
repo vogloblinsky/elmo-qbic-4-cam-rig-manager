@@ -1,26 +1,8 @@
-var Wifitools       = require('./utils/wifi-tool'),
-    wifiClient      = new Wifitools(),
-    connectedWifi   = null,
-    localCamIP      = '192.168.42.1',
-    express         = require('express'),
+var express         = require('express'),
     path            = require('path'),
     logger          = require('morgan'),
     app             = express(),
     urlClient       = '../client/src';
-
-wifiClient.getCurrentWifiNetwork();
-
-/*
-setTimeout(function() {
-    wifiClient.connectToNetwork('QBIC-VOG-1', '0123456789').then(function() {
-        setTimeout(function() {
-            //Test correct connection after 5s
-            connectedWifi = wifiClient.getCurrentWifiNetwork();
-            console.log('connectedWifi: ', connectedWifi);
-        }, 5000);
-    });
-}, 2000);
-*/
 
 /**
  * Configuration
