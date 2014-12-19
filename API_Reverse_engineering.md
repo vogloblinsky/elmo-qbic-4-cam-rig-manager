@@ -113,7 +113,7 @@ Response:
 
 Part 1
 
-{"msg_id":2, "param": "on", "token": 0, "type": "stream_while_record"}
+{"msg_id":2, "param": "on", "type": "stream_while_record", "token": 1}
 
 Response: 
 
