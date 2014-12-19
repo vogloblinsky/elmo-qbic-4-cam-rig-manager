@@ -39,5 +39,10 @@ angular.module('camManager')
                     CameraFactory.selectCamera(newValue);
                 }
             });
+
+
+            $scope.testFx = function(param) {
+                return param*2;
+            };
         }
     ]);
