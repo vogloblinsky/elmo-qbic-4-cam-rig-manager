@@ -53,6 +53,7 @@ angular.module('camManager').factory('CameraFactory',
 
         CameraFactory.selectCamera = function(id) {
             _selectedCamera = id;
+            CameraService.connect(id);
         };
 
         return CameraFactory;

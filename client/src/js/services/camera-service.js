@@ -12,5 +12,9 @@ angular.module('camManager').service('CameraService', ['Restangular',
         this.getSettings = function() {
             return baseCamera.customGET('settings');
         };
+
+        this.connect = function(id) {
+            return Restangular.one('camera', id).customGET('connect');
+        };
     }
 ]);
