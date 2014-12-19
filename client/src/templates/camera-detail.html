@@ -8,43 +8,37 @@
     <div>
         <table class="table table-bordered">
             <tr>
-                <td>stream_type</td>
-                <td>{{ cameraData[id].settings.stream_type }}</a></td>
-            </tr>
-            <!--
-            <tr>
-                <td>Angle</td>
-                <td><a href="#" editable-number="user.email">{{ user.email || 0 }}</a></td>
+                <td>camera_clock</td>
+                <td>{{ cameraData[id].settings.camera_clock }}</td>
             </tr>
             <tr>
-                <td>Distortion Correction</td>
-                <td><a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></td>
+                <td>el_ae_control</td>
+                <td>{{ cameraData[id].settings.el_ae_control }}</td>
             </tr>
             <tr>
-                <td>Hand-Shake Correction</td>
-                <td><a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></td>
+                <td>el_ae_exposure_level</td>
+                <td><a href="#" editable-number="cameraData[id].settings.el_ae_exposure_level">{{ cameraData[id].settings.el_ae_exposure_level || 0 }}</a></td>
             </tr>
             <tr>
-                <td>Auto White Balance</td>
-                <td><a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></td>
+                <td>el_ae_light_metering</td>
+                <td>{{ cameraData[id].settings.el_ae_light_metering }}</td>
             </tr>
             <tr>
-                <td>Auto Exposure</td>
-                <td><a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></td>
+                <td>el_ae_manual_gain</td>
+                <td><a href="#" editable-number="cameraData[id].settings.el_ae_manual_gain">{{ cameraData[id].settings.el_ae_manual_gain || 0 }}</a></td>
             </tr>
             <tr>
-                <td>Resolution</td>
-                <td><a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></td>
+                <td>el_ae_manual_shutter</td>
+                <td><a href="#" editable-number="cameraData[id].settings.el_ae_manual_shutter">{{ cameraData[id].settings.el_ae_manual_shutter || 0 }}</a></td>
             </tr>
             <tr>
-                <td>Exposure / shutter speed</td>
-                <td><a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></td>
+                <td>el_angle_deg</td>
+                <td>{{ cameraData[id].settings.el_angle_deg }}</td>
             </tr>
             <tr>
-                <td>Exposure / gain level</td>
-                <td><a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></td>
+                <td>el_battery</td>
+                <td>{{ cameraData[id].settings.el_battery }}</td>
             </tr>
-            -->
         </table>
     </div>
     <p>
