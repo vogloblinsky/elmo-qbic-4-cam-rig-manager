@@ -1,6 +1,8 @@
 var gulp        = require('gulp'),
     nodemon     = require('gulp-nodemon');
 
+require('gulp-grunt')(gulp);
+
 gulp.task('default', function() {
     nodemon({
         script: 'server/index.js',
@@ -10,3 +12,9 @@ gulp.task('default', function() {
         }
     });
 });
+
+console.log(gulp);
+
+gulp.task('graph', [
+  'angular_architecture_graph'
+]);
