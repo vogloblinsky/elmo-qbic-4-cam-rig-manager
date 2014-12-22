@@ -2,11 +2,11 @@
 
 This project is a web interface for handling parameters and streaming of 4 Elmo QBIC MS-1 cameras for 360 videos setup
 
-Requirements :
+**Requirements :**
 
 Hardware
 
-- MAC computer with wifi card
+- Mac computer with wifi card, not tested on Windows computer
 - 4 Elmo QBIC MS-1 cameras with each one having a specific named wifi network
 
 Software
