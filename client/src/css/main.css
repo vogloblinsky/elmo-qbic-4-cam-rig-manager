@@ -1,5 +1,5 @@
 .rotateCounterClock {
     -webkit-transform-origin: center bottom;
-    -webkit-transform: rotate(90deg) translateY(85%) translateX(-7%);
+    -webkit-transform: rotate(-90deg) translateY(13%) translateX(5%);
     width: 424px;
 }
