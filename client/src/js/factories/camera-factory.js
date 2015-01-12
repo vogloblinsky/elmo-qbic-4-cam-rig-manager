@@ -22,7 +22,11 @@ angular.module('camManager').factory('CameraFactory',
 
         var CameraServiceCall = function() {
             CameraService.getThumb().then(function(picture) {
-                _camerasData[_selectedCamera].picture = picture;
+                if(picture === 'ok') {
+                    _camerasData[_selectedCamera].picture = 'http://192.168.42.1/mjpeg/amba.jpg?ts=' + Date.now();
+                } else {
+                    _camerasData[_selectedCamera].picture = picture;
+                }
             });
             CameraService.getSettings().then(function(settings) {
                 console.log(settings.plain());
