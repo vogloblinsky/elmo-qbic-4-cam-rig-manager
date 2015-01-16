@@ -2,7 +2,7 @@
 
 This project is a web interface for handling parameters and streaming of 4 Elmo QBIC MS-1 cameras for 360 videos setup
 
-![Screenshot](../blob/master/about.jpg?raw=true)
+![Screenshot](/../master/about.jpg?raw=true)
 
 **Requirements :**
 
