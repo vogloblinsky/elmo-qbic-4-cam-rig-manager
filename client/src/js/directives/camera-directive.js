@@ -6,7 +6,8 @@ angular.module('camManager')
             templateUrl: './templates/camera-detail.html',
             scope: {
                 id: '=cameraId',
-                cameraData: '='
+                cameraData: '=',
+                rigOrientation: '='
             }
         }
     }]);
