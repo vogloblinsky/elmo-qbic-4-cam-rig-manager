@@ -40,5 +40,7 @@ angular.module('camManager')
             });
 
             $scope.camerasData = CameraFactory.camerasData();
+
+            $scope.rigOrientation = 'up';
         }
     ]);
