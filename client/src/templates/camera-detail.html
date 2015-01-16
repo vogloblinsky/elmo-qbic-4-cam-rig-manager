@@ -9,7 +9,7 @@
         <table class="table table-bordered">
             <tr>
                 <td>camera_clock</td>
-                <td>{{ cameraData[id].settings.camera_clock }}</td>
+                <td>{{ cameraData[id].settings.camera_clock || ( 0 | date:'yyyy-MM-dd HH:mm:ss' ) }}</td>
             </tr>
             <tr>
                 <td>el_ae_control</td>
