@@ -16,5 +16,5 @@ gulp.task('default', function() {
 console.log(gulp);
 
 gulp.task('graph', [
-  'angular_architecture_graph'
+    'angular_architecture_graph'
 ]);
