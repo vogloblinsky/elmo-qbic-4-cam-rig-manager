@@ -61,8 +61,10 @@ var getHeartBeat = function() {
 
 var reformatArrayFromCamera = function(data) {
     var _result = {},
-        len = data.length,
+        len = 0,
         i = 0;
+
+    len = (typeof data !== 'undefined') ? data.length : 0;
 
     for(i; i<len; i++) {
         for(var k in data[i]) {
@@ -147,7 +149,7 @@ var getCameraThumb = function(req, res, next) {
         // Send random noise image
         randombase64.generate({
             height     : 240,
-            width      : 400,
+            width      : 424,
             withPrefix  : true
         }, function(err, str) {
             res.send(str);
@@ -158,6 +160,7 @@ var getCameraThumb = function(req, res, next) {
 var connectToCamera = function(req, res, next) {
     var cameraId = req.params.id;
         connectedToCamera = false;
+        token = null;
         wifiClient.connectToNetwork(constants.namespaceCameraName + cameraId, constants.defaultCameraPassword).then(function() {
             setTimeout(function() {
                 //Test correct connection after 5s
