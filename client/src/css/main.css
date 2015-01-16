@@ -9,5 +9,5 @@
 }
 
 .rotateCounterClock.down {
-    -webkit-transform: rotate(-90deg) translateY(13%) translateX(5%);
+    -webkit-transform: rotate(-90deg) translateY(15%) translateX(5%);
 }
