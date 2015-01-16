@@ -3,3 +3,11 @@
     -webkit-transform: rotate(-90deg) translateY(13%) translateX(5%);
     width: 424px;
 }
+
+.rotateCounterClock.up {
+    -webkit-transform: rotate(90deg) translateY(85%) translateX(-5%);
+}
+
+.rotateCounterClock.down {
+    -webkit-transform: rotate(-90deg) translateY(13%) translateX(5%);
+}
