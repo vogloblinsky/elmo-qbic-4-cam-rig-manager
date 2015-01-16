@@ -1,6 +1,6 @@
 <div class="col-md-3">
     <p>
-        Camera {{ id }} - QBIC-VOG-{{id}}
+        Camera {{ id }} - QBIC-VOG-{{ id }}
     </p>
     <p>
         <b>Settings :</b>
@@ -42,9 +42,12 @@
         </table>
     </div>
     <p>
-        <b>Preview : 400x240px</b>
+        <b>Preview : 424x240px / Original (848x480px)</b>
     <p>
     <div>
-        <img ng-src="{{ cameraData[id].picture || 'img/thumb.jpg'}}" class="rotateCounterClock" alt="Responsive image">
+        <img ng-src="{{ cameraData[id].picture || 'img/thumb.jpg'}}" 
+            class="rotateCounterClock"
+            ng-class="{'up': (rigOrientation === 'up'), 'down': (rigOrientation === 'down')}"
+            alt="Responsive image">
     </div>
 </div>
