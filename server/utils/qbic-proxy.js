@@ -4,13 +4,12 @@ var Q                       = require('q'),
     request                 = require('request'),
     constants               = require('./constants.js'),
     randombase64            = require('randombase64'),
-    connectedWifi           = null,
-    Wifitools               = require('./wifi-tool'),
-    wifiClient              = new Wifitools(),
+    wifiClient              = require('./wifi-tool'),
 
     apiEndPoint             = 'http://' + constants.localIPCamera + '/cgi-bin/cgi',
 
     token                   = null,
+    connectedCameraId       = null,
     connectedToCamera       = false,
     streamingActivated      = false,
 
@@ -75,7 +74,7 @@ var reformatArrayFromCamera = function(data) {
     return _result;
 };
 
-var getCameraParams = function(req, res, next) {
+var getCameraSettings = function(req, res, next) {
 
     var _call = function() {
         request.post({
@@ -158,22 +157,39 @@ var getCameraThumb = function(req, res, next) {
 };
 
 var connectToCamera = function(req, res, next) {
-    var cameraId = req.params.id;
-        connectedToCamera = false;
-        token = null;
-        wifiClient.connectToNetwork(constants.namespaceCameraName + cameraId, constants.defaultCameraPassword).then(function() {
-            setTimeout(function() {
-                //Test correct connection after 5s
-                connectedWifi = wifiClient.getCurrentWifiNetwork();
-                connectedToCamera = true;
-                console.log('connectedWifi: ', connectedWifi);
-                res.sendStatus(200);
-            }, 5000);
-        });
+    var cameraId = req.params.id,
+        token = null,
+        timeoutConnect = 5000,
+
+        _connect = function() {
+            wifiClient.connectToNetwork(constants.namespaceCameraName + cameraId, constants.defaultCameraPassword).then(function() {
+                setTimeout(function() {
+                    //Test correct connection after 5s
+                    wifiClient.getCurrentWifiNetwork().then(function(name) {
+                        connectedCameraId = name;
+                    });
+                    connectedToCamera = true;
+                    console.log('connectedCameraId 2: ', connectedCameraId);
+                    res.sendStatus(200);
+                }, timeoutConnect);
+            });
+        };
+
+    //First test is not already connected to desired camera
+    wifiClient.getCurrentWifiNetwork().then(function(name) {
+        if (constants.namespaceCameraName + cameraId === name) {
+            connectedToCamera = true;
+            connectedCameraId = name;
+            console.log('connectedCameraId 1: ', connectedCameraId);
+            res.sendStatus(200);
+        } else {
+            _connect();
+        }
+    });
 };
 
 var qbicProxy = {
-    getCameraParams: getCameraParams,
+    getCameraSettings: getCameraSettings,
     getCameraThumb: getCameraThumb,
     connectToCamera: connectToCamera
 };
