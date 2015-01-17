@@ -67,7 +67,12 @@ var reformatArrayFromCamera = function(data) {
 
     for (i; i < len; i++) {
         for (var k in data[i]) {
-            _result[k] = data[i][k];
+            //Parse numbers too
+            if (isNaN(data[i][k])) {
+                _result[k] = data[i][k];
+            } else {
+                _result[k] = parseInt(data[i][k]);
+            }
         }
     }
 
