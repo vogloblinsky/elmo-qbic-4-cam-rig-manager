@@ -21,6 +21,9 @@ module.exports = function(app) {
     app.route('/api/camera/settings')
         .get(qbicProxy.getCameraSettings);
 
+    app.route('/api/camera/setting')
+        .post(qbicProxy.setCameraSetting);
+
     app.route('/api/camera/thumb')
         .get(qbicProxy.getCameraThumb);
 };

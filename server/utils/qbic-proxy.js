@@ -17,10 +17,10 @@ var Q                       = require('q'),
 
     messageIds = {
         cameraParams: 3,
-        streamOnPart1: 2,
+        setter: 2,
         streamOnPart2: 259,
         heartBeat: 260,
-        token: 257
+        token: 257 
     };
 
 var getToken = function() {
@@ -35,6 +35,32 @@ var getToken = function() {
         console.log('token: ', token);
         deferred.resolve(token);
     });
+
+    return deferred.promise;
+};
+
+var setSetting = function(type, value) {
+    var deferred = Q.defer();
+
+    var _call = function() {
+        request.post({
+            url: apiEndPoint,
+            form: '{"msg_id":' + messageIds.setter + ', "param": "' + value + '", "type": "' + type + '", "token": ' + token + '}'
+        }, function(err, httpResponse, body) {
+            console.log(body);
+            var modifiedParam = JSON.parse(body);
+            console.log('modifiedParam: ', modifiedParam);
+            deferred.resolve(modifiedParam);
+        });
+    }
+
+    if (connectedToCamera && token !== null) {
+        getHeartBeat().then(_call);
+    } else if (connectedToCamera && token === null) {
+        getToken().then(getHeartBeat).then(_call);
+    } else {
+        deferred.reject();
+    }
 
     return deferred.promise;
 };
@@ -105,13 +131,13 @@ var activateStreaming = function() {
 
     request.post({
         url: apiEndPoint,
-        form: '{"msg_id":' + messageIds.streamOnPart1 + ', "param": "on", "type": "stream_while_record", "token": ' + token + '}'
+        form: '{"msg_id":' + messageIds.setter + ', "param": "on", "type": "stream_while_record", "token": ' + token + '}'
     }, function(err, httpResponse, body) {
         var resultPart1 = JSON.parse(body);
 
         console.log('resultPart1: ', resultPart1);
 
-        if (resultPart1.msg_id === messageIds.streamOnPart1 && resultPart1.type === 'stream_while_record') {
+        if (resultPart1.msg_id === messageIds.setter && resultPart1.type === 'stream_while_record') {
             request.post({
                 url: apiEndPoint,
                 form: '{"msg_id":' + messageIds.streamOnPart2 + ', "param": "none_force", "token": ' + token + '}'
@@ -194,10 +220,24 @@ var connectToCamera = function(req, res, next) {
     });
 };
 
+var setCameraSetting = function(req, res, next) {
+    var settingType = req.query.type,
+        settingValue = req.query.value;
+
+    console.log('setCameraSetting: ', settingType, settingValue);
+
+    setSetting(settingType, settingValue).then(function(result) {
+        res.sendStatus(200);
+    }, function() {
+        res.sendStatus(404);
+    })
+};
+
 var qbicProxy = {
     getCameraSettings: getCameraSettings,
     getCameraThumb: getCameraThumb,
-    connectToCamera: connectToCamera
+    connectToCamera: connectToCamera,
+    setCameraSetting: setCameraSetting
 };
 
 module.exports = qbicProxy;
