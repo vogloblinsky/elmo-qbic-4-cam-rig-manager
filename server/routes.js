@@ -4,7 +4,7 @@ var request         = require('request').defaults({
         encoding: null
     }),
     fs              = require('fs-extended'),
-    
+
     qbicProxy       = require('./utils/qbic-proxy.js'),
     constants       = require('./utils/constants.js');
 
