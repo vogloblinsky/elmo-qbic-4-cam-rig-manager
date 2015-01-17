@@ -61,6 +61,10 @@ angular.module('camManager').factory('CameraFactory',
             CameraService.connect(id);
         };
 
+        CameraFactory.setSetting = function(type, value) {
+            CameraService.setSetting(type, value);
+        };
+
         return CameraFactory;
 
     }

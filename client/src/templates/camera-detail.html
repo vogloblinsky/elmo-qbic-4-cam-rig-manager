@@ -17,7 +17,13 @@
             </tr>
             <tr>
                 <td>Exposure level</td>
-                <td><a href="#" editable-number="cameraData[id].settings.el_ae_exposure_level">{{ cameraData[id].settings.el_ae_exposure_level || 0 }}</a></td>
+                <td>
+                    <input type="range" max="2" min="-2" step="1" 
+                        ng-model="cameraData[id].settings.el_ae_exposure_level" 
+                        ng-change="updateExposureLevel(cameraData[id].settings.el_ae_exposure_level)">
+                        {{ cameraData[id].settings.el_ae_exposure_level || 0 }}
+                    </input>
+                </td>
             </tr>
             <tr>
                 <td>Light metering</td>
