@@ -1,5 +1,5 @@
 <div class="col-md-3">
-    <p>
+    <p class="text-center">
         Camera {{ id }} - QBIC-VOG-{{ id }}
     </p>
     <p>
@@ -8,46 +8,49 @@
     <div>
         <table class="table table-bordered">
             <tr>
-                <td>camera_clock</td>
+                <td>Camera clock</td>
                 <td>{{ cameraData[id].settings.camera_clock || ( 0 | date:'yyyy-MM-dd HH:mm:ss' ) }}</td>
             </tr>
             <tr>
-                <td>el_ae_control</td>
-                <td>{{ cameraData[id].settings.el_ae_control }}</td>
+                <td>Auto exposure</td>
+                <td>{{ cameraData[id].settings.el_ae_control || 'No data' }}</td>
             </tr>
             <tr>
-                <td>el_ae_exposure_level</td>
+                <td>Exposure level</td>
                 <td><a href="#" editable-number="cameraData[id].settings.el_ae_exposure_level">{{ cameraData[id].settings.el_ae_exposure_level || 0 }}</a></td>
             </tr>
             <tr>
-                <td>el_ae_light_metering</td>
-                <td>{{ cameraData[id].settings.el_ae_light_metering }}</td>
+                <td>Light metering</td>
+                <td>{{ cameraData[id].settings.el_ae_light_metering || 'No data' }}</td>
             </tr>
             <tr>
-                <td>el_ae_manual_gain</td>
+                <td>Exposure manual gain</td>
                 <td><a href="#" editable-number="cameraData[id].settings.el_ae_manual_gain">{{ cameraData[id].settings.el_ae_manual_gain || 0 }}</a></td>
             </tr>
             <tr>
-                <td>el_ae_manual_shutter</td>
+                <td>Exposure manual shutter</td>
                 <td><a href="#" editable-number="cameraData[id].settings.el_ae_manual_shutter">{{ cameraData[id].settings.el_ae_manual_shutter || 0 }}</a></td>
             </tr>
             <tr>
-                <td>el_angle_deg</td>
-                <td>{{ cameraData[id].settings.el_angle_deg }}</td>
+                <td>Angle of view</td>
+                <td>{{ cameraData[id].settings.el_angle_deg || 0 }}</td>
             </tr>
             <tr>
-                <td>el_battery</td>
-                <td>{{ cameraData[id].settings.el_battery }}</td>
+                <td>Battery</td>
+                <td>{{ cameraData[id].settings.el_battery || 0 }}</td>
             </tr>
         </table>
     </div>
     <p>
         <b>Preview : 424x240px / Original (848x480px)</b>
     <p>
-    <div>
+    <div class="camera-thumb-container">
         <img ng-src="{{ cameraData[id].picture || 'img/thumb.jpg'}}" 
             class="rotateCounterClock"
             ng-class="{'up': (rigOrientation === 'up'), 'down': (rigOrientation === 'down')}"
             alt="Responsive image">
     </div>
+    <p>
+        &nbsp;
+    </p>
 </div>

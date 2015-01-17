@@ -1,7 +1,12 @@
+.page-header {
+    margin-top: 20px;
+}
+
 .rotateCounterClock {
     -webkit-transform-origin: center bottom;
     -webkit-transform: rotate(-90deg) translateY(13%) translateX(5%);
     width: 424px;
+    display: inline-block;
 }
 
 .rotateCounterClock.up {
@@ -10,4 +15,18 @@
 
 .rotateCounterClock.down {
     -webkit-transform: rotate(-90deg) translateY(15%) translateX(5%);
+}
+
+.proxy-connection-status {
+    padding: 6px 12px;
+}
+
+.proxy-connection-status label {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.camera-thumb-container {
+    width: 240px;
+    height: 424px;
 }

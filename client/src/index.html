@@ -25,8 +25,10 @@
                 <div class="row">
                     <div class="col-md-4">
                         Connexion status with proxy server : 
-                        <span class="label" ng-class="{'label-success': lifeState}" ng-if="lifeState">OK</span>
-                        <span class="label" ng-class="{'label-warning': !lifeState}" ng-if="!lifeState">KO</span>
+                        <div class="btn-group proxy-connection-status">
+                            <label class="label" ng-class="{'label-success': lifeState}" ng-if="lifeState">OK</label>
+                            <label class="label" ng-class="{'label-warning': !lifeState}" ng-if="!lifeState">KO</label>
+                        </div>
                     </div>
                     <div class="col-md-4">
                         Rig orientation : 
