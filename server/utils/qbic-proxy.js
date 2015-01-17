@@ -183,6 +183,7 @@ var connectToCamera = function(req, res, next) {
             console.log('connectedCameraId 1: ', connectedCameraId);
             res.sendStatus(200);
         } else {
+            connectedToCamera = false;
             _connect();
         }
     });
