@@ -30,22 +30,27 @@ var execute = function(cmd) {
 };
 
 var getCurrentWifiNetwork = function() {
+    var deferred = Q.defer();
     execute(commands.currentNetwork).then(extractCurrentNetwork).then(function(name) {
         console.log('name: ', name.SSID);
+        deferred.resolve(name.SSID);
+    }, function() {
+        deferred.reject();
     });
+    return deferred.promise;
 };
 
 var connectToNetwork = function(networkName, networkPassword) {
     var deferred = Q.defer();
     execute(commands.connect.replace('NETWORK_TOKEN', networkName).replace('PASSWORD_TOKEN', networkPassword)).then(function() {
         deferred.resolve();
+    }, function() {
+        deferred.reject();
     });
     return deferred.promise;
 }
 
-module.exports = function() {
-    return {
-        getCurrentWifiNetwork: getCurrentWifiNetwork,
-        connectToNetwork: connectToNetwork
-    }
+module.exports = {
+    getCurrentWifiNetwork: getCurrentWifiNetwork,
+    connectToNetwork: connectToNetwork
 };
