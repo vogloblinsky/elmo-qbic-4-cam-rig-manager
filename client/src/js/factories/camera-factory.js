@@ -8,21 +8,22 @@ angular.module('camManager').factory('CameraFactory',
         CameraService,
         SETTINGS) {
 
-        var CameraFactory = {};
+        var CameraFactory = {},
 
         /* Privates fx */
 
-        var _camerasData = {
-            '1': {},
-            '2': {},
-            '3': {},
-            '4': {}
+        _camerasData = {
+            1: {},
+            2: {},
+            3: {},
+            4: {}
         },
-            _selectedCamera = 0;
 
-        var CameraServiceCall = function() {
+        _selectedCamera = 0,
+
+        CameraServiceCall = function() {
             CameraService.getThumb().then(function(picture) {
-                if(picture === 'ok') {
+                if (picture === 'ok') {
                     _camerasData[_selectedCamera].picture = 'http://192.168.42.1/mjpeg/amba.jpg?ts=' + Date.now();
                 } else {
                     _camerasData[_selectedCamera].picture = picture;

@@ -14,7 +14,6 @@ angular.module('camManager')
             CameraFactory,
             SETTINGS) {
 
-
             var LifeServiceCall = function() {
                 LifeService.get().then(function(state) {
                     $scope.lifeState = state;
@@ -25,13 +24,12 @@ angular.module('camManager')
                 LifeServiceCall();
             }, SETTINGS.TIME_PULLING_LIFE);
 
-
-            var cameraPullingStarted = false;
             $scope.connectedCam = null;
-            var watcherSelectedCamera = $scope.$watch('connectedCam', function(newValue, oldValue) {
+            var cameraPullingStarted = false,
+            watcherSelectedCamera = $scope.$watch('connectedCam', function(newValue, oldValue) {
                 if (newValue !== oldValue) {
                     // Camera selected
-                    if(!cameraPullingStarted) {
+                    if (!cameraPullingStarted) {
                         cameraPullingStarted = true;
                         CameraFactory.startCameraPulling();
                     }
