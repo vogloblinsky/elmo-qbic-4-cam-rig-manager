@@ -7,9 +7,9 @@ All POST are sended to : /cgi-bin/cgi in application/json
 
 Response:
 {
-rval: 0
-msg_id: 257
-param: 2 -> TOKEN
+    rval: 0
+    msg_id: 257
+    param: 2 -> TOKEN
 }
 
 
@@ -18,8 +18,8 @@ param: 2 -> TOKEN
 
 Response:
 {
-rval: 0
-msg_id: 260
+    rval: 0
+    msg_id: 260
 }
 
 
@@ -28,8 +28,8 @@ msg_id: 260
 
 Response:
 {
-rval: -2
-msg_id: 4097
+    rval: -2
+    msg_id: 4097
 }
 
 #Get camera params
@@ -118,9 +118,9 @@ Part 1
 Response: 
 
 {
-rval: 0
-msg_id: 2
-type: "stream_while_record"
+    rval: 0
+    msg_id: 2
+    type: "stream_while_record"
 }
 
 Part 2
@@ -137,7 +137,7 @@ Part 2
 
 ##Adjuste field of view:
 
-{"msg_id":260, "token": 2}
+Synchro life
 +
 {"msg_id":2, "param": "120", "type", "el_angle_deg", "token": 2}
 
