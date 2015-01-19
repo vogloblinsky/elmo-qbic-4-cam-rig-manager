@@ -21,7 +21,10 @@ angular.module('camManager').factory('CameraFactory',
 
         _selectedCamera = 0,
 
-        CameraServiceCall = function() {
+        _thumbPullingInterval = null,
+        _settingsPullingInterval = null,
+
+        CameraServiceCallThumb = function() {
             CameraService.getThumb().then(function(picture) {
                 if (picture === 'ok') {
                     _camerasData[_selectedCamera].picture = 'http://192.168.42.1/mjpeg/amba.jpg?ts=' + Date.now();
@@ -29,6 +32,9 @@ angular.module('camManager').factory('CameraFactory',
                     _camerasData[_selectedCamera].picture = picture;
                 }
             });
+        },
+
+        CameraServiceCallSettings = function() {
             CameraService.getSettings().then(function(settings) {
                 console.log(settings.plain());
                 _camerasData[_selectedCamera].settings = settings.plain();
@@ -38,10 +44,16 @@ angular.module('camManager').factory('CameraFactory',
         /* Public fx */
 
         CameraFactory.startCameraPulling = function() {
-            CameraServiceCall();
-            $interval(function() {
-                CameraServiceCall();
+            CameraServiceCallThumb();
+            CameraServiceCallSettings();
+
+            _thumbPullingInterval = $interval(function() {
+                CameraServiceCallThumb();
             }, SETTINGS.TIME_PULLING_THUMB);
+
+            _settingsPullingInterval = $interval(function() {
+                CameraServiceCallSettings();
+            }, SETTINGS.TIME_PULLING_SETTINGS);
         };
 
         CameraFactory.camerasData = function() {
@@ -58,7 +70,15 @@ angular.module('camManager').factory('CameraFactory',
 
         CameraFactory.selectCamera = function(id) {
             _selectedCamera = id;
-            CameraService.connect(id);
+            if (angular.isDefined(_thumbPullingInterval)) {
+                $interval.cancel(_thumbPullingInterval);
+                _thumbPullingInterval = undefined;
+            }
+            if (angular.isDefined(_settingsPullingInterval)) {
+                $interval.cancel(_settingsPullingInterval);
+                _settingsPullingInterval = undefined;
+            }
+            return CameraService.connect(id);
         };
 
         CameraFactory.setSetting = function(type, value) {
