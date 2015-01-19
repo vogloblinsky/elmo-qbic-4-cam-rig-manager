@@ -127,10 +127,16 @@ Part 2
 
 {"msg_id":259, "param": "none_force", "token": 0}
 
+Response: 
+
+{
+    rval: 0
+    msg_id: 259
+}
 
 ##Stop streaming:
 
-{"msg_id":260, "token": 2}
+Synchro life
 +
 {"msg_id":258, "token": xx}
 
