@@ -20,7 +20,7 @@
                 <td>
                     <input type="range" max="2" min="-2" step="1" 
                         ng-model="cameraData[id].settings.el_ae_exposure_level" 
-                        ng-change="updateExposureLevel(cameraData[id].settings.el_ae_exposure_level)">
+                        ng-change="update('el_ae_exposure_level', cameraData[id].settings.el_ae_exposure_level)">
                         {{ cameraData[id].settings.el_ae_exposure_level || 0 }}
                     </input>
                 </td>
@@ -31,11 +31,27 @@
             </tr>
             <tr>
                 <td>Exposure manual gain</td>
-                <td><a href="#" editable-number="cameraData[id].settings.el_ae_manual_gain">{{ cameraData[id].settings.el_ae_manual_gain || 0 }}</a></td>
+                <td>
+                    <input type="number" max="19" min="1" step="1"
+                        value="{{ cameraData[id].settings.el_ae_manual_gain}}" 
+                        ng-model="cameraData[id].settings.el_ae_manual_gain" 
+                        ng-change="update('el_ae_manual_gain', cameraData[id].settings.el_ae_manual_gain)">
+                    </input>
+                    <!--
+                        <a href="#" editable-number="cameraData[id].settings.el_ae_manual_gain">{{ cameraData[id].settings.el_ae_manual_gain || 0 }}</a></td>
+                    -->
             </tr>
             <tr>
                 <td>Exposure manual shutter</td>
-                <td><a href="#" editable-number="cameraData[id].settings.el_ae_manual_shutter">{{ cameraData[id].settings.el_ae_manual_shutter || 0 }}</a></td>
+                <td>
+                    <input type="number" max="16" min="1" step="1"
+                        value="{{ cameraData[id].settings.el_ae_manual_shutter}}" 
+                        ng-model="cameraData[id].settings.el_ae_manual_shutter" 
+                        ng-change="update('el_ae_manual_shutter', cameraData[id].settings.el_ae_manual_shutter)">
+                    </input>
+                    <!--
+                        <a href="#" editable-number="cameraData[id].settings.el_ae_manual_shutter">{{ cameraData[id].settings.el_ae_manual_shutter || 0 }}</a></td>
+                    -->
             </tr>
             <tr>
                 <td>Angle of view</td>
