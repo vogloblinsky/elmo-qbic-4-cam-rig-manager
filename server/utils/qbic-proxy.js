@@ -43,6 +43,7 @@ var setSetting = function(type, value) {
     var deferred = Q.defer();
 
     var _call = function() {
+        var deferred = Q.defer();
         request.post({
             url: apiEndPoint,
             form: '{"msg_id":' + messageIds.setter + ', "param": "' + value + '", "type": "' + type + '", "token": ' + token + '}'
@@ -52,12 +53,13 @@ var setSetting = function(type, value) {
             console.log('modifiedParam: ', modifiedParam);
             deferred.resolve(modifiedParam);
         });
+        return deferred.promise;
     }
 
     if (connectedToCamera && token !== null) {
-        getHeartBeat().then(_call);
+        getHeartBeat().then(_call).then(getHeartBeat).then(activateStreaming);
     } else if (connectedToCamera && token === null) {
-        getToken().then(getHeartBeat).then(_call);
+        getToken().then(getHeartBeat).then(_call).then(getHeartBeat).then(activateStreaming);
     } else {
         deferred.reject();
     }
@@ -210,6 +212,7 @@ var connectToCamera = function(req, res, next) {
     wifiClient.getCurrentWifiNetwork().then(function(name) {
         if (constants.namespaceCameraName + cameraId === name) {
             connectedToCamera = true;
+            token = null;
             connectedCameraId = name;
             console.log('connectedCameraId 1: ', connectedCameraId);
             res.sendStatus(200);
