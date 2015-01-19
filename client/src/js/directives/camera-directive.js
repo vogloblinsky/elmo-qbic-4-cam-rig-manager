@@ -10,8 +10,8 @@ angular.module('camManager')
                 rigOrientation: '='
             },
             link: function(scope, elem, attr) {
-                scope.updateExposureLevel = function(value) {
-                    CameraFactory.setSetting('el_ae_exposure_level', value);
+                scope.update = function(type, value) {
+                    CameraFactory.setSetting(type, value);
                 };
             }
         }
