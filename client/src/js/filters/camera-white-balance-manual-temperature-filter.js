@@ -2,6 +2,6 @@
 
 angular.module('camManager.filters').filter('whiteBalanceManualTemperature', function() {
     return function(input) {
-        return input * 1000;
+        return (typeof input !== 'undefined') ? (input * 1000) + ' K' : '';
     };
 });
