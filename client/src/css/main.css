@@ -4,17 +4,29 @@
 
 .rotateCounterClock {
     -webkit-transform-origin: center bottom;
-    -webkit-transform: rotate(-90deg) translateY(13%) translateX(5%);
+    -moz-transform-origin: center bottom;
+    -ms-transform-origin: center bottom;
+    -o-transform-origin: center bottom;
+    transform-origin: center bottom;
+
     width: 424px;
     display: inline-block;
 }
 
 .rotateCounterClock.up {
-    -webkit-transform: rotate(90deg) translateY(85%) translateX(-5%);
+    -webkit-transform:  rotate(90deg) translateY(85%) translateX(-5%);
+    -moz-transform:     rotate(90deg) translateY(85%) translateX(-5%);
+    -ms-transform:      rotate(90deg) translateY(85%) translateX(-5%);
+    -o-transform:       rotate(90deg) translateY(85%) translateX(-5%);
+    transform:          rotate(90deg) translateY(85%) translateX(-5%);
 }
 
 .rotateCounterClock.down {
-    -webkit-transform: rotate(-90deg) translateY(15%) translateX(5%);
+    -webkit-transform:  rotate(-90deg) translateY(15%) translateX(5%);
+    -moz-transform:     rotate(-90deg) translateY(15%) translateX(5%);
+    -ms-transform:      rotate(-90deg) translateY(15%) translateX(5%);
+    -o-transform:       rotate(-90deg) translateY(15%) translateX(5%);
+    transform:          rotate(-90deg) translateY(15%) translateX(5%);
 }
 
 .proxy-connection-status {
