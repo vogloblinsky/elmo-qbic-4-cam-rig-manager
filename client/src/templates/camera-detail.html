@@ -42,6 +42,9 @@
                         ng-model="cameraData[id].settings.el_ae_manual_shutter" 
                         ng-change="update('el_ae_manual_shutter', cameraData[id].settings.el_ae_manual_shutter)">
                     </input>
+                    <div>
+                        {{ cameraData[id].settings.el_ae_manual_shutter | shutterSpeed }}
+                    </div>
             </tr>
             <tr>
                 <td>White balance temperature</td>
@@ -52,7 +55,7 @@
                         ng-change="update('el_wb_manual_temp', cameraData[id].settings.el_wb_manual_temp)">
                     </input>
                     <div>
-                        {{ cameraData[id].settings.el_wb_manual_temp | whiteBalanceManualTemperature }} K
+                        {{ cameraData[id].settings.el_wb_manual_temp | whiteBalanceManualTemperature }}
                     </div>
             </tr>
             <tr>
