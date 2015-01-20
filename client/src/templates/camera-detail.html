@@ -12,8 +12,8 @@
                 <td>{{ cameraData[id].settings.camera_clock || ( 0 | date:'yyyy-MM-dd HH:mm:ss' ) }}</td>
             </tr>
             <tr>
-                <td>Auto exposure</td>
-                <td>{{ cameraData[id].settings.el_ae_control || 'No data' }}</td>
+                <td>Battery</td>
+                <td>{{ cameraData[id].settings.el_battery || 0 }}</td>
             </tr>
             <tr>
                 <td>Exposure level</td>
@@ -26,10 +26,6 @@
                 </td>
             </tr>
             <tr>
-                <td>Light metering</td>
-                <td>{{ cameraData[id].settings.el_ae_light_metering || 'No data' }}</td>
-            </tr>
-            <tr>
                 <td>Exposure manual gain</td>
                 <td>
                     <input type="number" max="19" min="1" step="1"
@@ -37,9 +33,6 @@
                         ng-model="cameraData[id].settings.el_ae_manual_gain" 
                         ng-change="update('el_ae_manual_gain', cameraData[id].settings.el_ae_manual_gain)">
                     </input>
-                    <!--
-                        <a href="#" editable-number="cameraData[id].settings.el_ae_manual_gain">{{ cameraData[id].settings.el_ae_manual_gain || 0 }}</a></td>
-                    -->
             </tr>
             <tr>
                 <td>Exposure manual shutter</td>
@@ -49,17 +42,39 @@
                         ng-model="cameraData[id].settings.el_ae_manual_shutter" 
                         ng-change="update('el_ae_manual_shutter', cameraData[id].settings.el_ae_manual_shutter)">
                     </input>
-                    <!--
-                        <a href="#" editable-number="cameraData[id].settings.el_ae_manual_shutter">{{ cameraData[id].settings.el_ae_manual_shutter || 0 }}</a></td>
-                    -->
+            </tr>
+            <tr>
+                <td>White balance temperature</td>
+                <td>
+                    <input type="number" max="8" min="3" step="1"
+                        value="{{ cameraData[id].settings.el_wb_manual_temp}}" 
+                        ng-model="cameraData[id].settings.el_wb_manual_temp" 
+                        ng-change="update('el_wb_manual_temp', cameraData[id].settings.el_wb_manual_temp)">
+                    </input>
             </tr>
             <tr>
                 <td>Angle of view</td>
                 <td>{{ cameraData[id].settings.el_angle_deg || 0 }}</td>
             </tr>
             <tr>
-                <td>Battery</td>
-                <td>{{ cameraData[id].settings.el_battery || 0 }}</td>
+                <td>Light metering</td>
+                <td>{{ cameraData[id].settings.el_ae_light_metering || 'No data' }}</td>
+            </tr>
+            <tr>
+                <td>Auto exposure</td>
+                <td>{{ cameraData[id].settings.el_ae_control || 'No data' }}</td>
+            </tr>
+            <tr>
+                <td>Wide dynamic range</td>
+                <td>{{ cameraData[id].settings.el_wdr || '' }}</td>
+            </tr>
+            <tr>
+                <td>White balance</td>
+                <td>{{ cameraData[id].settings.el_white_balance || '' }}</td>
+            </tr>
+            <tr>
+                <td>White balance control</td>
+                <td>{{ cameraData[id].settings.el_wb_control || '' }}</td>
             </tr>
         </table>
     </div>
