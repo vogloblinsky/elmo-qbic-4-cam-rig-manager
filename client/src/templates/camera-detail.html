@@ -51,6 +51,9 @@
                         ng-model="cameraData[id].settings.el_wb_manual_temp" 
                         ng-change="update('el_wb_manual_temp', cameraData[id].settings.el_wb_manual_temp)">
                     </input>
+                    <div>
+                        {{ cameraData[id].settings.el_wb_manual_temp | whiteBalanceManualTemperature }} K
+                    </div>
             </tr>
             <tr>
                 <td>Angle of view</td>

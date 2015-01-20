@@ -5,7 +5,8 @@ angular.module('camManager', [
         'ngResource',
         'restangular',
         'xeditable',
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'camManager.filters'
     ])
     .config(['RestangularProvider',
         function(RestangularProvider) {
