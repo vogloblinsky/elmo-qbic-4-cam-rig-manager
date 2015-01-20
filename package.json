@@ -1,9 +1,9 @@
 {
-  "name": "cam-manager",
+  "name": "elmo-qbic-4-cam-rig-manager",
   "version": "0.0.1",
-  "description": "",
+  "description": "Web interface for handling parameters and streaming of 4 Elmo QBIC MS-1 cameras for 360 videos setup",
   "main": "server/index.js",
-  "author": "VOG",
+  "author": "Vincent Ogloblinsky",
   "dependencies": {
     "express": "^4.10.6",
     "fs-extended": "^0.2.0",
