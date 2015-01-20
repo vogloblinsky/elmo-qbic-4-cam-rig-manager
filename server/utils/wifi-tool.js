@@ -12,7 +12,7 @@ var extractCurrentNetwork = function(output) {
         deferred = Q.defer();
     _result = output.split('\n').reduce(function(obj, pair) {
         var match = pair.match(/^\s+([^:]+):\s+(.*)(\b\s+)?$/);
-        if (match) obj[match[1]] = isNaN(match[2]) ? match[2] : parseInt(match[2]);
+        if (match) { obj[match[1]] = isNaN(match[2]) ? match[2] : parseInt(match[2]) };
         return obj;
     }, {});
     deferred.resolve(_result);
@@ -22,9 +22,9 @@ var extractCurrentNetwork = function(output) {
 var execute = function(cmd) {
     var deferred = Q.defer();
     exec(cmd, function(err, strout, strerr) {
-        if (err) deferred.reject(new Error(err));
-        else if (strerr) deferred.reject(new Error(strerr));
-        else deferred.resolve(strout);
+        if (err) { deferred.reject(new Error(err)); }
+        else if (strerr) { deferred.reject(new Error(strerr)); }
+        else { deferred.resolve(strout); }
     });
     return deferred.promise;
 };

@@ -39,34 +39,6 @@ var getToken = function() {
     return deferred.promise;
 };
 
-var setSetting = function(type, value) {
-    var deferred = Q.defer();
-
-    var _call = function() {
-        var deferred = Q.defer();
-        request.post({
-            url: apiEndPoint,
-            form: '{"msg_id":' + messageIds.setter + ', "param": "' + value + '", "type": "' + type + '", "token": ' + token + '}'
-        }, function(err, httpResponse, body) {
-            console.log(body);
-            var modifiedParam = JSON.parse(body);
-            console.log('modifiedParam: ', modifiedParam);
-            deferred.resolve(modifiedParam);
-        });
-        return deferred.promise;
-    }
-
-    if (connectedToCamera && token !== null) {
-        getHeartBeat().then(_call).then(getHeartBeat).then(activateStreaming);
-    } else if (connectedToCamera && token === null) {
-        getToken().then(getHeartBeat).then(_call).then(getHeartBeat).then(activateStreaming);
-    } else {
-        deferred.reject();
-    }
-
-    return deferred.promise;
-};
-
 var getHeartBeat = function() {
     console.log('getHeartBeat');
     var deferred = Q.defer();
@@ -159,11 +131,37 @@ var activateStreaming = function() {
     return deferred.promise;
 };
 
+var setSetting = function(type, value) {
+    var deferred = Q.defer();
+
+    var _call = function() {
+        var deferred = Q.defer();
+        request.post({
+            url: apiEndPoint,
+            form: '{"msg_id":' + messageIds.setter + ', "param": "' + value + '", "type": "' + type + '", "token": ' + token + '}'
+        }, function(err, httpResponse, body) {
+            console.log(body);
+            var modifiedParam = JSON.parse(body);
+            console.log('modifiedParam: ', modifiedParam);
+            deferred.resolve(modifiedParam);
+        });
+        return deferred.promise;
+    }
+
+    if (connectedToCamera && token !== null) {
+        getHeartBeat().then(_call).then(getHeartBeat).then(activateStreaming);
+    } else if (connectedToCamera && token === null) {
+        getToken().then(getHeartBeat).then(_call).then(getHeartBeat).then(activateStreaming);
+    } else {
+        deferred.reject();
+    }
+
+    return deferred.promise;
+};
+
 var getCameraThumb = function(req, res, next) {
 
-    var _cameraId = req.params.id,
-        _contentType = null,
-        _finalURI = null;
+    var _finalURI = null;
 
     var _callThumb = function() {
         request('http://' + constants.localIPCamera + '/mjpeg/amba.jpg', function(error, response, body) {
