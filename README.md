@@ -1,7 +1,14 @@
 # Elmo Qbic 4 cameras Rig Manager
-[![Dependency Status](https://david-dm.org/vogloblinsky/elmo-qbic-4-cam-rig-manager.png)](https://david-dm.org/vogloblinsky/elmo-qbic-4-cam-rig-manager)
-[![devdependencies](https://david-dm.org/vogloblinsky/elmo-qbic-4-cam-rig-manager/dev-status.png)](https://david-dm.org/vogloblinsky/elmo-qbic-4-cam-rig-manager#info=devDependencies)
-[![Codacy Badge](https://www.codacy.com/project/badge/ce741cecdb444141aad8a07108c628c0)](https://www.codacy.com/public/vincentogloblinsky/elmo-qbic-4-cam-rig-manager)
+[![Dependency Status](ds-image)](ds-url)
+[![devdependencies](dds-image)](dds-url)
+[![Codacy Badge](codacy-image)](codacy-url)
+
+[ds-url]: https://david-dm.org/vogloblinsky/elmo-qbic-4-cam-rig-manager
+[ds-image]: https://david-dm.org/vogloblinsky/elmo-qbic-4-cam-rig-manager.png
+[dds-url]: https://david-dm.org/vogloblinsky/elmo-qbic-4-cam-rig-manager#info=devDependencies
+[dds-image]: https://david-dm.org/vogloblinsky/elmo-qbic-4-cam-rig-manager/dev-status.png
+[codacy-url]: https://www.codacy.com/public/vincentogloblinsky/elmo-qbic-4-cam-rig-manager
+[codacy-image]: https://www.codacy.com/project/badge/ce741cecdb444141aad8a07108c628c0
 
 This project is a web interface for handling parameters and streaming of 4 Elmo QBIC MS-1 cameras for 360 videos setup
 
