@@ -4,9 +4,16 @@
   "description": "Web interface for handling parameters and streaming of 4 Elmo QBIC MS-1 cameras for 360 videos setup",
   "main": "server/index.js",
   "author": "Vincent Ogloblinsky",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vogloblinsky/elmo-qbic-4-cam-rig-manager"
+  },
   "dependencies": {
+    "chai": "^1.10.0",
+    "chai-as-promised": "^4.1.1",
     "express": "^4.10.6",
     "fs-extended": "^0.2.0",
+    "intern": "^2.2.2",
     "morgan": "^1.5.0",
     "q": "^1.1.2",
     "randombase64": "^0.1.0",
