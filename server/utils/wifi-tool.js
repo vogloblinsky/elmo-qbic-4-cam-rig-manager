@@ -7,10 +7,10 @@ var Q = require('q'),
         connect: 'networksetup -setairportnetwork en1 "NETWORK_TOKEN" "PASSWORD_TOKEN"'
     }
 
-var extractCurrentNetwork = function(output) {
+var extractCurrentNetwork = function(input) {
     var _result = '',
         deferred = Q.defer();
-    _result = output.split('\n').reduce(function(obj, pair) {
+    _result = input.split('\n').reduce(function(obj, pair) {
         var match = pair.match(/^\s+([^:]+):\s+(.*)(\b\s+)?$/);
         if (match) { obj[match[1]] = isNaN(match[2]) ? match[2] : parseInt(match[2]) };
         return obj;
@@ -48,9 +48,10 @@ var connectToNetwork = function(networkName, networkPassword) {
         deferred.reject();
     });
     return deferred.promise;
-}
+};
 
 module.exports = {
     getCurrentWifiNetwork: getCurrentWifiNetwork,
-    connectToNetwork: connectToNetwork
+    connectToNetwork: connectToNetwork,
+    extractCurrentNetwork: extractCurrentNetwork
 };
