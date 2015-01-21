@@ -2,7 +2,6 @@
 [![Dependency Status](ds-image)](ds-url)
 [![devdependencies](dds-image)](dds-url)
 [![Codacy Badge](codacy-image)](codacy-url)
-[![Build Status](https://travis-ci.org/vogloblinsky/elmo-qbic-4-cam-rig-manager.svg?branch=master)](https://travis-ci.org/vogloblinsky/elmo-qbic-4-cam-rig-manager)
 
 [ds-url]: https://david-dm.org/vogloblinsky/elmo-qbic-4-cam-rig-manager
 [ds-image]: https://david-dm.org/vogloblinsky/elmo-qbic-4-cam-rig-manager.png
