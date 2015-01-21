@@ -38,6 +38,15 @@ npm install & bower install
 
 - launch http://localhost:9090/ in your web browser
 
+### Client / AngularJS Modules architecture
+
+A grunt task incorporated in the gulp file is available to render png files for the modules architecture.
+Files are generated in ./architecture/png
+
+``` javascript
+gulp grunt-angular_architecture_graph
+```
+
 ### Documentation
 
 Elmo QBIC MS-1 manual :
