@@ -11,6 +11,7 @@
   "dependencies": {
     "chai": "^1.10.0",
     "chai-as-promised": "^4.1.1",
+    "coveralls": "^2.11.2",
     "express": "^4.10.6",
     "fs-extended": "^0.2.0",
     "intern": "^2.2.2",
@@ -28,6 +29,7 @@
     "gulp-nodemon": "^1.0.4"
   },
   "scripts": {
-    "test": "intern-client config=tests/server/intern && intern-runner config=tests/client/intern"
+    "test": "intern-client config=tests/server/intern && intern-runner config=tests/client/intern",
+    "coveralls": "cat lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   }
 }
