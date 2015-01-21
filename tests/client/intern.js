@@ -18,11 +18,14 @@ define({
 		'selenium-version': '2.41.0'
 	},
 
+	environments: [
+		{
+			browserName: 'firefox'
+		}
+	],
+
 	// Maximum number of simultaneous integration tests that should be executed on the remote WebDriver service
 	maxConcurrency: 3,
-
-	// Name of the tunnel class to use for WebDriver tests
-	tunnel: 'SauceLabsTunnel',
 
 	// The desired AMD loader to use when running unit tests (client.html/client.js). Omit to use the default Dojo
 	// loader
@@ -52,8 +55,6 @@ define({
 	suites: [
 		'tests/client/filters/camera-white-balance-manual-temperature'
 	],
-
-	reporters: ['console', 'html'],
 
 	// A regular expression matching URLs to files that should not be included in code coverage analysis
 	excludeInstrumentation: /^(?:tests|client\/src\/bower_components|node_modules)\//
