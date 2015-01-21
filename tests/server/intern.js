@@ -50,7 +50,7 @@ define({
 		'tests/server/wifi-tool'
 	],
 
-	reporters: ['console'],
+	reporters: ['console', 'lcovhtml'],
 
 	// A regular expression matching URLs to files that should not be included in code coverage analysis
 	excludeInstrumentation: /^(?:tests|client\/src\/bower_components|node_modules)\//
