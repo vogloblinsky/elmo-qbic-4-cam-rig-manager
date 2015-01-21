@@ -11,6 +11,8 @@ before_install:
     - sudo apt-get install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++
 install:
     - npm install
+    - npm install -g bower
+    - bower install
 script: npm test
 after_success:
     - npm run coveralls
