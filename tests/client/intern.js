@@ -15,17 +15,25 @@ define({
 	// Note that the `build` capability will be filled in with the current commit ID from the Travis CI environment
 	// automatically
 	capabilities: {
-		'selenium-version': '2.41.0'
+		'selenium-version': '2.41.0',
+		'idle-timeout': 30
 	},
 
 	environments: [
 		{
-			browserName: 'firefox'
+			browserName: 'chrome'
 		}
 	],
 
 	// Maximum number of simultaneous integration tests that should be executed on the remote WebDriver service
 	maxConcurrency: 3,
+
+	useSauceConnect: false,
+
+	webdriver: {
+		host: 'localhost',
+		port: 4444
+	},
 
 	// The desired AMD loader to use when running unit tests (client.html/client.js). Omit to use the default Dojo
 	// loader
