@@ -26,5 +26,8 @@
     "gulp": "^3.8.7",
     "gulp-grunt": "^0.5.2",
     "gulp-nodemon": "^1.0.4"
+  },
+  "scripts": {
+    "test": "intern-client config=tests/intern"
   }
 }
