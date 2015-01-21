@@ -28,6 +28,6 @@
     "gulp-nodemon": "^1.0.4"
   },
   "scripts": {
-    "test": "intern-client config=tests/intern"
+    "test": "intern-client config=tests/server/intern"
   }
 }
