@@ -2,3 +2,4 @@ node_modules
 client/src/bower_components
 architecture
 html-report
+lcov.info
