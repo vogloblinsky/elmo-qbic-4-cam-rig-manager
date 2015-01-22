@@ -1,35 +1,35 @@
 {
-  "name": "elmo-qbic-4-cam-rig-manager",
-  "version": "0.0.1",
-  "description": "Web interface for handling parameters and streaming of 4 Elmo QBIC MS-1 cameras for 360 videos setup",
-  "main": "server/index.js",
-  "author": "Vincent Ogloblinsky",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vogloblinsky/elmo-qbic-4-cam-rig-manager"
-  },
-  "dependencies": {
-    "chai": "^1.10.0",
-    "chai-as-promised": "^4.1.1",
-    "coveralls": "^2.11.2",
-    "express": "^4.10.6",
-    "fs-extended": "^0.2.0",
-    "intern": "^2.2.2",
-    "morgan": "^1.5.0",
-    "q": "^1.1.2",
-    "randombase64": "^0.1.0",
-    "request": "^2.51.0"
-  },
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-angular-architecture-graph": "^0.2.5",
-    "grunt-graphviz": "^0.1.1",
-    "gulp": "^3.8.7",
-    "gulp-grunt": "^0.5.2",
-    "gulp-nodemon": "^1.0.4"
-  },
-  "scripts": {
-    "test": "intern-client config=tests/server/intern && intern-runner config=tests/client/intern",
-    "coveralls": "cat lcov.info | ./node_modules/coveralls/bin/coveralls.js"
-  }
+    "name": "elmo-qbic-4-cam-rig-manager",
+    "version": "0.0.1",
+    "description": "Web interface for handling parameters and streaming of 4 Elmo QBIC MS-1 cameras for 360 videos setup",
+    "main": "server/index.js",
+    "author": "Vincent Ogloblinsky",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vogloblinsky/elmo-qbic-4-cam-rig-manager"
+    },
+    "dependencies": {
+        "chai": "^1.10.0",
+        "chai-as-promised": "^4.1.1",
+        "coveralls": "^2.11.2",
+        "express": "^4.10.6",
+        "fs-extended": "^0.2.0",
+        "intern": "^2.2.2",
+        "morgan": "^1.5.0",
+        "q": "^1.1.2",
+        "randombase64": "^0.1.0",
+        "request": "^2.51.0"
+    },
+    "devDependencies": {
+        "grunt": "^0.4.5",
+        "grunt-angular-architecture-graph": "^0.2.5",
+        "grunt-graphviz": "^0.1.1",
+        "gulp": "^3.8.7",
+        "gulp-grunt": "^0.5.2",
+        "gulp-nodemon": "^1.0.4"
+    },
+    "scripts": {
+        "test": "intern-client config=tests/server/intern && intern-runner config=tests/client/intern",
+        "coveralls": "cat lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    }
 }
