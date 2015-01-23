@@ -8,7 +8,7 @@ define([
     };
 
     intern.environments = [{
-        browserName: 'safari'
+        browserName: 'chrome'
     }];
 
     return intern;
