@@ -31,20 +31,6 @@ define({
 		'host-browser': 'node_modules/dojo/dojo.js'
 	},
 
-	// Configuration options for the module loader; any AMD configuration options supported by the specified AMD loader
-	// can be used here
-	loader: {
-		// Packages that should be registered with the loader in each testing environment
-		packages: [
-			{
-				name: 'angular', location: 'client/src/bower_components/angular'
-			},
-			{
-				name: 'angular-mocks', location: 'client/src/bower_components/angular-mocks'
-			}
-		]
-	},
-
 	// Non-functional test suite(s) to run in each browser
 	suites: [
 		'tests/server/wifi-tool'
