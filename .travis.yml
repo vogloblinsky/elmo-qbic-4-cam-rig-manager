@@ -14,6 +14,6 @@ install:
     - npm install -g bower
     - bower install
 script: 
-    - npm test-server-and-client-coverage
+    - npm run test-server-and-client-coverage
 after_success:
     - npm run coveralls
