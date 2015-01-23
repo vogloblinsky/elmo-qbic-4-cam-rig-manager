@@ -23,7 +23,9 @@ define([
         }));
 
         bdd.it('should output the corresponding shutter speed string', function() {
-            expect(filter('shutterSpeed')(4)).to.equal('1/2000');
+            expect(filter('shutterSpeed')(1)).to.equal('1/8000');
+            expect(filter('shutterSpeed')(3)).to.equal('1/3000');
+            expect(filter('shutterSpeed')(5)).to.equal('1/1500');
         });
 
     });

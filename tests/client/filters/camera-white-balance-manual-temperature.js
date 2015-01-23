@@ -26,5 +26,9 @@ define([
             expect(filter('whiteBalanceManualTemperature')(5)).to.equal('5000 K');
         });
 
+        bdd.it('without input, it should output an empty string', function() {
+            expect(filter('whiteBalanceManualTemperature')()).to.equal('');
+        });
+
     });
 });
