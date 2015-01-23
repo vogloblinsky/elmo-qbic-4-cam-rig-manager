@@ -56,7 +56,8 @@ define({
 
 	// Non-functional test suite(s) to run in each browser
 	suites: [
-		'tests/client/filters/camera-white-balance-manual-temperature'
+		'tests/client/filters/camera-white-balance-manual-temperature',
+		'tests/client/filters/camera-shutter-speed'
 	],
 
 	// A regular expression matching URLs to files that should not be included in code coverage analysis
