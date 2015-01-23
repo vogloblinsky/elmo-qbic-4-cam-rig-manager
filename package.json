@@ -29,7 +29,18 @@
         "gulp-nodemon": "^1.0.4"
     },
     "scripts": {
-        "test": "intern-client config=tests/server/intern && intern-runner config=tests/client/intern",
+        "test-server": "intern-client config=tests/server/intern",
+        "test-server-coverage": "intern-client config=tests/server/intern reporters=console reporters=lcovhtml reporters=lcov",
+        
+        "test-client-remote": "intern-runner config=tests/client/intern",
+        "test-client-remote-coverage": "intern-runner config=tests/client/intern reporters=runner reporters=lcovhtml reporters=lcov",
+
+        "test-client-local": "intern-runner config=tests/client/intern.local",
+        "test-client-local": "intern-runner config=tests/client/intern.local reporters=runner reporters=lcovhtml",
+
+        "test-server-and-client": "intern-client config=tests/server/intern && intern-runner config=tests/client/intern",
+        "test-server-and-client-coverage": "intern-client config=tests/server/intern reporters=console reporters=lcovhtml reporters=lcov && intern-runner config=tests/client/intern reporters=console reporters=lcovhtml reporters=lcov",
+
         "coveralls": "cat lcov.info | ./node_modules/coveralls/bin/coveralls.js"
     }
 }
