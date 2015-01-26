@@ -1,3 +1,10 @@
+video_resolution:
+    1920x1080 60P 16:9
+    1920x1080 30P 16:9
+    1280x720 120P 16:9
+    1280x720 60P 16:9
+    1280x720 30P 16:9
+    848x480 240P 16:9
 el_ae_light_metering: "multi" (moyenne globale) or "center" (pondérée centrale)
 el_angle_deg: 170 (185°), 145 (165°), 120 (135°)
 el_wb_manual_temp: from 3 (3000 K) to 8 (8000 K)
